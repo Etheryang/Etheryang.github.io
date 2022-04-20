@@ -1,4 +1,4 @@
-https://etheryang.github.io/2022/04/20/new/
-https://etheryang.github.io/2022/04/20/mushroom/
-https://etheryang.github.io/2022/04/20/hello-world/
-https://etheryang.github.io/
+https://github.com/Etheryang/Etheryang.github.io.git/2022/04/20/new/
+https://github.com/Etheryang/Etheryang.github.io.git/2022/04/20/mushroom/
+https://github.com/Etheryang/Etheryang.github.io.git/2022/04/20/hello-world/
+https://github.com/Etheryang/Etheryang.github.io.git

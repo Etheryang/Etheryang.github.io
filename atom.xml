@@ -3,11 +3,11 @@
   <title>香菇的世界</title>
   
   
-  <link href="https://gitee.com/yangether/mushroom.git/atom.xml" rel="self"/>
+  <link href="https://etheryang.github.io/atom.xml" rel="self"/>
   
-  <link href="https://gitee.com/yangether/mushroom.git/"/>
+  <link href="https://etheryang.github.io/"/>
   <updated>2022-04-20T09:16:08.417Z</updated>
-  <id>https://gitee.com/yangether/mushroom.git/</id>
+  <id>https://etheryang.github.io/</id>
   
   <author>
     <name>蘑菇小队</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>项目的详细说明</title>
-    <link href="https://gitee.com/yangether/mushroom.git/2022/04/20/new/"/>
-    <id>https://gitee.com/yangether/mushroom.git/2022/04/20/new/</id>
+    <link href="https://etheryang.github.io/2022/04/20/new/"/>
+    <id>https://etheryang.github.io/2022/04/20/new/</id>
     <published>2022-04-20T09:08:39.631Z</published>
     <updated>2022-04-20T09:16:08.417Z</updated>
     
@@ -38,8 +38,8 @@
   
   <entry>
     <title>智能大棚的实现</title>
-    <link href="https://gitee.com/yangether/mushroom.git/2022/04/20/mushroom/"/>
-    <id>https://gitee.com/yangether/mushroom.git/2022/04/20/mushroom/</id>
+    <link href="https://etheryang.github.io/2022/04/20/mushroom/"/>
+    <id>https://etheryang.github.io/2022/04/20/mushroom/</id>
     <published>2022-04-20T09:00:41.808Z</published>
     <updated>2022-04-20T09:15:52.950Z</updated>
     
@@ -58,8 +58,8 @@
   
   <entry>
     <title>关于我们的项目</title>
-    <link href="https://gitee.com/yangether/mushroom.git/2022/04/20/hello-world/"/>
-    <id>https://gitee.com/yangether/mushroom.git/2022/04/20/hello-world/</id>
+    <link href="https://etheryang.github.io/2022/04/20/hello-world/"/>
+    <id>https://etheryang.github.io/2022/04/20/hello-world/</id>
     <published>2022-04-20T07:58:41.247Z</published>
     <updated>2022-04-20T09:15:51.823Z</updated>
     

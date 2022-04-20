@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>香菇的世界</title>
+  
+  
+  <link href="https://gitee.com/yangether/mushroom.git/atom.xml" rel="self"/>
+  
+  <link href="https://gitee.com/yangether/mushroom.git/"/>
+  <updated>2022-04-20T09:16:08.417Z</updated>
+  <id>https://gitee.com/yangether/mushroom.git/</id>
+  
+  <author>
+    <name>蘑菇小队</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>项目的详细说明</title>
+    <link href="https://gitee.com/yangether/mushroom.git/2022/04/20/new/"/>
+    <id>https://gitee.com/yangether/mushroom.git/2022/04/20/new/</id>
+    <published>2022-04-20T09:08:39.631Z</published>
+    <updated>2022-04-20T09:16:08.417Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>界面设计</strong><br> 遵守的界面设计规范<br>1、页面结构清晰。遵循主次分明的原则，适合用户的阅读习惯，简明扼要。<br>2、层次设计合理。信息分层明确，用户能够很快找到需要的信息内容。<br>3、浏览速度快。考虑数据的传输速度，尽量简化图形等内容，让公众在极短时间内就          能浏览到所需信息。<br>3.1.2 主界面设计<br><img src="https://img-blog.csdnimg.cn/ad26b4643e0b48aea20f98f283afd84f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZXRoZXIt,size_19,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p><p>软件主界面是一个入口界面，整体风格以展示功能为主。主界面的视图2所示：<br><img src="https://img-blog.csdnimg.cn/4a5b471e6bf54c6da872db498d0bf4a4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZXRoZXIt,size_19,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/af1ffa23cdf54ceda0b15225b6f83d80.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZXRoZXIt,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p><p><strong>功能界面设计</strong><br>1、点击上方菜单栏即可选择图片检测功能，点击下方上传图片选项，使用者可以上传待检测目标香菇照片。点击开始检测，系统将自动对图片进行识别检测与数据分析，并将结果显示在交互界面。<br>通过菜单栏也可以选择视频检测功能，在视频检测系统中，用户可以选择摄像头实时检测或视频文件检测。如图 5所示：<br>用户上传已经录制完毕的香菇视频，系统将自动检测分析视频文件中的香菇。<br>打开外接摄像头，将镜头对准待检测香菇，系统将自动完成对数据的采集，分析完毕后将迅速将数据显示在界面上，实现实时检测。<br><strong>数据库设计</strong><br>项目开始之前，本团队在香菇种植大棚中收集到了4000张香菇图片做为数据集，逐一对其进行了标识并对系统进行了机器训练学习，大幅度提高了系统对各种香菇的辨识度以及辨识的准确性。</p><p>图 7  项目ER图<br><img src="https://img-blog.csdnimg.cn/48f31cf54284469ca0649d76b199c041.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZXRoZXIt,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p><h2 id="关键算法"><a href="#关键算法" class="headerlink" title="关键算法"></a>关键算法</h2><p> <strong>YOLOv5算法介绍</strong><br>首先在主干网络嵌入表征能力更强 CSP(Cross Stage Paritial Network)结构进行特征图提取。其中，每个 CSP 结构是以 CBM 结构为基本单元组合构成的残差结构，而每个 CBM 结构由1 个卷积层，1 个归一化层和 1 个 Mish 函数（如式1激活层堆叠而成)。<br>其次，使用 SPP 结构(spatial pyramid pooling layer)将特征图通过并列的三个不同池化层进行池化，最后通过残差边进行拼接。接着，将所得到的 三组不同尺寸的特征图送入 PANet 结构，输出拥有全局语义信息的特征图。<br>最后，在输出的三组不同尺度的特征图上进行预测，特征图组上的每个网格（如图 2）需要预测3 个不同的目标框，每个目标框要预测 4 个位置参数 x、y、w、h，1 个置信度 p 和各类别概率 class。<br>通过大量机器学习，该算法能很好地通过香菇纹理、颜色及形态等自动检测香菇的成熟度及是否可采摘。<br> 损失函数方面<br>YOLOv4 采用 CIoU 损失函数如式(2）所示， 代换 YOLOv3 的预测目标框位置的损失函数，用于修正回归预测框位置。<br><img src="https://img-blog.csdnimg.cn/69baf591e6a74b61a8dbd875bce1ed01.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZXRoZXIt,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p><p>其中：<br>式中，Iioj bj 代表第 i 个网格的第 j 个预测框中是否有物体，ρ代表真实框与预测框的中心坐标距离，C 代表目标框与预测框的外包矩形对角线距离。wgt ，hgt 和 w,h 代表真实框和预测框的宽和高，v是宽高比影响因素，α是权衡因子。IoU 代表预测框与真实框的交并比（如图 3 所示），长方形 ABCD代表真实框，长方形 EFGH 代表预测框。两者交集为阴影区域 PBQH，交并比为两者的交集面积与并集面积之比，即如式（3）所示<br>                                                                     （3）<br>当使用 IoU 作为目标框回归损失函数时,IOU 比值越大代表预测更为准确，但 IoU 无法解决当两目标框交集为 0 时的梯度消失问题，而使用 CIoU作为目标框回归损失函数时，加入了两框中心距离影响因素，解决了上述问题，同时增加宽高比因素，而且使预测框回归速度更快。<br><strong>训练技巧方面</strong><br>（1）mosaic数据增强<br>在数据集预处理阶段，将四张图片集中到一张 图片上，进行训练，不但增加了一张图片的目标数， 而且提高了训练效率，同时也增加了小目标的个数。<br>(2)学习率余弦退火策略<br>YOLOv4的学习率采取余弦退火策略，如式（4所示，其中，i 表示正在执行热重启的次数，在 Ti 个epoch 内设置步长重新计算学习率 pt 。pmin 和 i pmax 代表学习率的下限和上限，Tcur &#x2F;Ti 代表 i 次已完成训练的 epoch 数量占 i 次总 epoch 数的比值（因每个 epoch 包含多个 batch，且每一个 batch 结束后要更新一次学习率，故 epoch 可能为小数）。这样学习率在Ti 个 epoch 内学习率会像余弦函数式递减，且在Ti1 个 epoch 时通过阶跃式提高学习率进行热重启。达到跳出局部最小值，探索全局最小值的效<br>果。<br><strong>标签平滑策略</strong><br>标签平滑用于对网络目标的真值向量的设置。 以往的网络的标签向量多采用 one_hot 方法，即最后的标签向量由 0 和 1 组成，该方法对错误的标签较为敏感，从而降低模型的性能。而标签平滑考虑到每类错标现象的概率 ，并将该向量为真的分量位置设置为1-  ，其余位置为 n  1 ，n 为特征向量的维数，标签平滑的设计考虑到错标概率，使得网络的泛化性增强。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;strong&gt;界面设计&lt;/strong&gt;&lt;br&gt; 遵守的界面设计规范&lt;br&gt;1、页面结构清晰。遵循主次分明的原则，适合用户的阅读习惯，简明扼要。&lt;br&gt;2、层次设计合理。信息分层明确，用户能够很快找到需要的信息内容。&lt;br&gt;3、浏览速度快。考虑数据的传输速度，尽量简化图形</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>智能大棚的实现</title>
+    <link href="https://gitee.com/yangether/mushroom.git/2022/04/20/mushroom/"/>
+    <id>https://gitee.com/yangether/mushroom.git/2022/04/20/mushroom/</id>
+    <published>2022-04-20T09:00:41.808Z</published>
+    <updated>2022-04-20T09:15:52.950Z</updated>
+    
+    <content type="html"><![CDATA[<p>近年来我国的温室控制取得了 长足的进步， 首先在温室群控制方面， 进行了初步的探索和理论研究， 其次在温室控制中引入了 人工智能和先进的控制算法。 当前温室控制系统研究热点己由简单的DDC(直接数字控制) 发展到分布式控制系统， 如 DCS(分布式控制) 、 FCS(柔性控制) 等网络化的控制系统。实施远程控制。 虽然国内温室规模有限， 还没有形成规模经济， 另外构建的费用也较高， 但从长远来看，温室监控系统分布式和网络化将是一种必然的趋势。 本方案以 AT89C51 单片机系统为核心来对温度，湿度和二氧化碳浓度进行实时控制和检测。 检测单元能独立完成各自功能， 并根据单片机的指令对温度进行实时或定时采集。 单片机负责控制指令的发送， 并控制各机构进行温度采集， 手机测量数据， 同时对测量结果进行处理及显示。</p><p><img src="https://img-blog.csdnimg.cn/901658f68b104bf9994ffaabaccee361.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZXRoZXIt,size_20,color_FFFFFF,t_70,g_se,x_16" alt="智能大棚"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;近年来我国的温室控制取得了 长足的进步， 首先在温室群控制方面， 进行了初步的探索和理论研究， 其次在温室控制中引入了 人工智能和先进的控制算法。 当前温室控制系统研究热点己由简单的DDC(直接数字控制) 发展到分布式控制系统， 如 DCS(分布式控制) 、 FCS(柔性控</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>关于我们的项目</title>
+    <link href="https://gitee.com/yangether/mushroom.git/2022/04/20/hello-world/"/>
+    <id>https://gitee.com/yangether/mushroom.git/2022/04/20/hello-world/</id>
+    <published>2022-04-20T07:58:41.247Z</published>
+    <updated>2022-04-20T09:15:51.823Z</updated>
+    
+    <content type="html"><![CDATA[<p>  本项目是由香菇检测系统与可视化界面组成用以实现香菇采摘的智能化。其中检测系统是基于<strong>scipy、numpy、matplotlib</strong>等开源库实现的。利用图像处理技术将机器自动采集到的棚式袋料培植环境下的数据，包括待采香菇纹理、香菇的颜色及形态等传入系统，进行可视化处理及分析，并在可视化界面中呈现结果。<br>软件将采集到的香菇物理特征集合和种植环境特征使用VOC格式进行卷积神经网络训练。首先利用Backbone提取待采摘香菇的主干特征，形成食用菌的有效特征层，再用FPN进行将不同的特征层进行特征融合，提取出更好的特征，加强袋料栽培香菇的特征网络。最后通过Yolo Head进行特征分类及回归预测，用以预测特征点对应的香菇的生长状况，实现了便捷、有效地控制系统。<br>进入香菇种植区域后，操作者稳定运行检测系统，将图像采集设备对准待采摘香菇系统会自动识别并定位，根据图像信息收集并获取待采香菇纹理、香菇的颜色及形态等，然后将香菇信息进行数据检测及分析。最终结果将反馈给自动化机器或菇农，以达到对香菇成熟度、品质及生长状况的检测。<br><img src="https://img-blog.csdnimg.cn/82add9ff0efe42b4930e8cfe40a06339.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZXRoZXIt,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;  本项目是由香菇检测系统与可视化界面组成用以实现香菇采摘的智能化。其中检测系统是基于&lt;strong&gt;scipy、numpy、matplotlib&lt;/strong&gt;等开源库实现的。利用图像处理技术将机器自动采集到的棚式袋料培植环境下的数据，包括待采香菇纹理、香菇的颜色及形态</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
